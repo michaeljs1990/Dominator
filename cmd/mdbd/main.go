@@ -92,6 +92,10 @@ func printUsage() {
 		"    url: URL which yields lines. Each line contains:")
 	fmt.Fprintln(os.Stderr,
 		"         host [required-image [planned-image]]")
+	fmt.Fprintln(os.Stderr,
+		"  collins")
+	fmt.Fprintln(os.Stderr,
+		"    Query the collins CMDB for all hosts specified in your CQL query (github.com/tumblr/collins)")
 }
 
 type driver struct {
@@ -106,6 +110,7 @@ var drivers = []driver{
 	{"aws-filtered", 2, 2, newAwsFilteredGenerator},
 	{"aws-local", 0, 0, newAwsLocalGenerator},
 	{"cis", 1, 1, newCisGenerator},
+	{"collins", 1, 100, newCollinsGenerator},
 	{"ds.host.fqdn", 1, 1, newDsHostFqdnGenerator},
 	{"fleet-manager", 1, 2, newFleetManagerGenerator},
 	{"hypervisor", 0, 0, newHypervisorGenerator},
