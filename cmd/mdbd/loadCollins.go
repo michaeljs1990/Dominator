@@ -38,7 +38,6 @@ func (g *collinsGeneratorType) Generate(_ string, logger log.Logger) (*mdb.Mdb, 
 
 	client, err := collins.NewClientFromFiles(g.instance.configFile)
 	if err != nil {
-		// You can specify where your file lives with the COLLINS_CLIENT_CONFIG env
 		return nil, errors.New("Error creating collins client: " + err.Error())
 	}
 
