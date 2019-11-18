@@ -96,6 +96,8 @@ func (g *collinsGeneratorType) Generate(_ string, logger log.Logger) (*mdb.Mdb, 
 				"PRIMARY_ROLE":   atts["PRIMARY_ROLE"],
 				"SECONDARY_ROLE": atts["SECONDARY_ROLE"],
 				"CLASSIFICATION": asset.Classification.Tag,
+				"STATUS":         asset.Metadata.Status,
+				"STATE":          asset.Metadata.State.Name,
 			}
 			outMdb.Machines = append(outMdb.Machines, outMachine)
 		}
